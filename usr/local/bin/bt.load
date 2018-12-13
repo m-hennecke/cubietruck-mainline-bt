@@ -34,8 +34,8 @@ if [ `uname -r | grep '^3.4.' ` ] ; then
 else
   EXTRA=-d
   BT_TTY=/dev/ttyS2
-  [ -d /sys/devices/platform/soc@01c00000/1c28800.serial/tty/ttyS1 ] && BT_TTY=/dev/ttyS1
-  [ -d /sys/devices/platform/soc@01c00000/1c28800.serial/tty/ttyS2 ] && BT_TTY=/dev/ttyS2
+  [ -d /sys/devices/platform/soc@1c00000/1c28800.serial/tty/ttyS1 ] && BT_TTY=/dev/ttyS1
+  [ -d /sys/devices/platform/soc@1c00000/1c28800.serial/tty/ttyS2 ] && BT_TTY=/dev/ttyS2
 fi
 
 #	If new approach, we run the "reset" program here.
