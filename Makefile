@@ -23,6 +23,10 @@ CFLAGS=
 
 all : brcm_patchram_plus brcm_bt_reset
 
+install: all
+	install -o root -g wheel -m 755 brcm_patchram_plus /usr/local/bin/brcm_patchram_plus
+	install -o root -g wheel -m 755 brcm_bt_reset /usr/local/bin/brcm_bt_reset
+
 brcm_patchram_plus.o : brcm_patchram_plus.c
 	gcc -Wall -c -o brcm_patchram_plus.o brcm_patchram_plus.c
 
@@ -34,4 +38,7 @@ brcm_bt_reset.o : brcm_bt_reset.c
 
 brcm_bt_reset : brcm_bt_reset.o
 	gcc -o brcm_bt_reset brcm_bt_reset.o
+
+clean:
+	rm -f brcm_bt_reset brcm_bt_reset.o brcm_patchram_plus brcm_patchram_plus.o
 
