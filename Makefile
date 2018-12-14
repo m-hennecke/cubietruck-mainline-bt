@@ -26,6 +26,8 @@ all : brcm_patchram_plus brcm_bt_reset
 install: all
 	install -o root -g wheel -m 755 brcm_patchram_plus /usr/local/bin/brcm_patchram_plus
 	install -o root -g wheel -m 755 brcm_bt_reset /usr/local/bin/brcm_bt_reset
+	install -o root -g wheel -m 755 bt.init /usr/local/bin/bt.init
+	install -o root -g wheel -m 755 bt.load /usr/local/bin/bt.load
 
 brcm_patchram_plus.o : brcm_patchram_plus.c
 	gcc -Wall -c -o brcm_patchram_plus.o brcm_patchram_plus.c

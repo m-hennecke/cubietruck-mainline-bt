@@ -1,0 +1,4 @@
+*.o
+
+brcm_bt_reset
+brcm_patchram_plus
