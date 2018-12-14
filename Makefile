@@ -29,6 +29,9 @@ install: all
 	install -o root -g wheel -m 755 bt.init /usr/local/bin/bt.init
 	install -o root -g wheel -m 755 bt.load /usr/local/bin/bt.load
 
+install_firmware:
+	install -C -o root -g root -m 644 lib/firmware/ap6210/bcm20710a1.hcd /lib/firmware/ap6210/bcm20710a1.hcd
+
 brcm_patchram_plus.o : brcm_patchram_plus.c
 	gcc -Wall -c -o brcm_patchram_plus.o brcm_patchram_plus.c
 
