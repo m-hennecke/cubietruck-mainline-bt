@@ -1,5 +1,17 @@
 # Bluetooth on Cubietruck with mainline kernel
 
+This is written with a gentoo installation on the cubietruck as my test
+system using openrc. I cleaned up the original git archive to not include
+binaries that can be build on the system and added init.d scripts to suit
+gentoo's init system.
+
+To build the required programs issue `make`.
+To install the programs/scripts issue `make install` with root privileges.
+
+To install the firmware issue `make firmware_install` with root privileges.
+
+The init.d script has to be copied by hand to `/etc/init.d/`.
+
 ## Kernel modules
 
 - hci_uart
@@ -38,6 +50,18 @@ method described here uses the btattach utility.
 The init script in the sub directory etc/init.d/btattach tries to
 load the ap6210 firmware into the module and start btattach in the
 background.
+
+If btattach has been started rfkill should output an entry for the
+bluetooth device:
+
+```
+# rfkill
+ID TYPE      DEVICE      SOFT      HARD
+0 wlan      phy0   unblocked unblocked
+4 bluetooth hci0   unblocked unblocked
+```
+
+Restarting btattach will result in different IDs displayed.
 
 ## bluetoothctl
 
