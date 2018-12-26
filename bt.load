@@ -8,7 +8,7 @@ BT_MAC_ADDR=00:53:4A:53:02:02
 #	UART mode so the patchram program can dowmload the firmware.
 #	The new approach is to run brcm_bt_reset first.
 
-EXTRA=
+EXTRA="--enable-hci"
 RESET_SCRIPT=
 PATCH_SCRIPT=
 
